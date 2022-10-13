@@ -1,11 +1,11 @@
 
 const router = require("express").Router();
-const Build = require("../models/buildModel");
+const Part = require("../models/partModel");
 
 router.get("/", async (req, res) => {
     try {
-        const builds = await Build.find().populate("parts");
-        res.json(builds);
+        const parts = await Part.find();
+        res.json(parts);
     } catch (err) {
         console.error(err);
         res.status(500).send();
@@ -14,19 +14,18 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const { name, tier, type, parts, images } = req.body;
+        const { name, images, retailers, type } = req.body;
 
-        const newBuild = new Build({
+        const newPart = new Part({
             name,
-            tier,
+            images, 
+            retailers,
             type,
-            parts,
-            images,
         });
 
-        const savedBuild = await newBuild.save();
+        const savedPart = await newPart.save();
 
-        res.json(savedBuild);
+        res.json(savedPart);
     } catch (err) {
         console.error(err);
         res.status(500).send();

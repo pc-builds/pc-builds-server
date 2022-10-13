@@ -18,7 +18,7 @@ app.use(
 );
 
 mongoose.connect(
-    "mongodb+srv://ironwaystreet130:EqH9QTzW7trjV3ig@cluster0.ijt0p.mongodb.net/posters?retryWrites=true&w=majority",
+    "CONNECTIONSTRING",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -30,3 +30,4 @@ mongoose.connect(
 );
 
 app.use("/builds", require("./routers/buildsRouter"));
+app.use("/parts", require("./routers/partsRouter"));
