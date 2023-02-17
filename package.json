@@ -1,7 +1,14 @@
 {
+  "name": "pc-builds-server",
+  "scripts": {
+    "start": "node index.js",
+    "swagger-autogen": "node swagger.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongoose": "^6.6.5"
+    "mongoose": "^6.6.5",
+    "swagger-autogen": "^2.23.1",
+    "swagger-ui-express": "^4.6.0"
   }
 }
